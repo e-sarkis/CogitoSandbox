@@ -205,6 +205,28 @@ bus = &"SFX"
 [node name="Bullet_Point" type="Node3D" parent="Neck/Head/Wieldables/Foam Pistol"]
 transform = Transform3D(1, 0, -1.81899e-12, 0, 1, 0, 0, 0, 1, 0.277335, 0.0601448, 0.00182778)
 
+[node name="Grappling Hook" type="RigidBody3D" parent="Neck/Head/Wieldables"]
+transform = Transform3D(-3.61999e-06, 0, 0.999999, 0, 1, 0, -1, 0, -3.61999e-06, 0.328536, -0.26394, -0.53488)
+visible = false
+collision_layer = 3
+freeze = true
+script = ExtResource("7_2f3bv")
+projectile_prefab = ExtResource("11_ydo45")
+projectile_velocity = 50.0
+default_position = Vector3(0.329, -0.264, -0.535)
+sound_primary_use = ExtResource("11_45f3g")
+
+[node name="pistol_mesh" type="MeshInstance3D" parent="Neck/Head/Wieldables/Grappling Hook"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+mesh = SubResource("ArrayMesh_gjvni")
+skeleton = NodePath("")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Neck/Head/Wieldables/Grappling Hook"]
+bus = &"SFX"
+
+[node name="Bullet_Point" type="Node3D" parent="Neck/Head/Wieldables/Grappling Hook"]
+transform = Transform3D(1, 0, -1.81899e-12, 0, 1, 0, 0, 0, 1, 0.277335, 0.0601448, 0.00182778)
+
 [node name="WieldableAnimationPlayer" type="AnimationPlayer" parent="Neck/Head/Wieldables"]
 reset_on_save = false
 libraries = {
@@ -230,7 +252,7 @@ one_shot = true
 [node name="PlayerInteractionComponent" parent="." node_paths=PackedStringArray("interaction_raycast", "carryable_position", "wieldable_nodes") instance=ExtResource("13_rawn6")]
 interaction_raycast = NodePath("../Neck/Head/Eyes/Camera/InteractionRaycast")
 carryable_position = NodePath("../CarryablePosition")
-wieldable_nodes = [NodePath("../Neck/Head/Wieldables/Foam Pistol"), NodePath("../Neck/Head/Wieldables/Flashlight")]
+wieldable_nodes = [NodePath("../Neck/Head/Wieldables/Foam Pistol"), NodePath("../Neck/Head/Wieldables/Flashlight"), NodePath("../Neck/Head/Wieldables/Grappling Hook")]
 
 [node name="HealthComponent" parent="." instance=ExtResource("11_ms07f")]
 max_health = 100.0

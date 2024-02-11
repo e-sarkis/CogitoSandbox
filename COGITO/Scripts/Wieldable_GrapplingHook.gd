@@ -6,7 +6,7 @@ extends Node3D
 ## Speed the projectile spawns with
 @export var projectile_velocity : float
 ## Node the projectile spawns at
-@onready var bullet_point = $Bullet_Point
+@onready var projectile_point = $Projectile_Point
 
 ## The Field Of View change when aiming down sight. In degrees.
 @export var ads_fov = 65
@@ -23,10 +23,10 @@ var player_interaction_component
 
 # This gets called by player interaction compoment when the wieldable is equipped and primary action is pressed
 func action_primary(_camera_collision:Vector3, _passed_item_reference : InventoryItemPD):
-	var Direction = (_camera_collision - bullet_point.get_global_transform().origin).normalized()
+	var Direction = (_camera_collision - projectile_point.get_global_transform().origin).normalized()
 	
 	var Projectile = projectile_prefab.instantiate()
-	bullet_point.add_child(Projectile)
+	projectile_point.add_child(Projectile)
 	Projectile.damage_amount = _passed_item_reference.wieldable_damage
 	Projectile.set_linear_velocity(Direction * projectile_velocity)
 	Audio.play_sound_3d(sound_primary_use).global_position = self.global_position

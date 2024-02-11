@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://COGITO/Scripts/Cogito_Object.gd" id="1_7dww5"]
 [ext_resource type="PackedScene" uid="uid://1xq4y42qkcur" path="res://COGITO/Components/PickupComponent.tscn" id="2_53n1p"]
-[ext_resource type="Resource" uid="uid://lc5uq2e6ldah" path="res://COGITO/InventoryPD/Items/Cogito_Pistol.tres" id="3_q4a7e"]
+[ext_resource type="Resource" uid="uid://cemlckbb8at52" path="res://COGITO/InventoryPD/Items/Cogito_GrapplingHook.tres" id="3_rtawi"]
 [ext_resource type="Script" path="res://COGITO/InventoryPD/CustomResources/InventorySlotPD.gd" id="4_g8b8x"]
 [ext_resource type="PackedScene" uid="uid://cio4x05ipvslu" path="res://COGITO/Components/CarryableComponent.tscn" id="5_v6whl"]
 
@@ -58,10 +58,10 @@ size = Vector3(0.0942247, 0.2, 0.0599624)
 
 [sub_resource type="Resource" id="Resource_vcolb"]
 script = ExtResource("4_g8b8x")
-inventory_item = ExtResource("3_q4a7e")
+inventory_item = ExtResource("3_rtawi")
 quantity = 1
 
-[node name="pickup_pistol" type="RigidBody3D"]
+[node name="pickup_grapplinghook" type="RigidBody3D"]
 collision_layer = 3
 script = ExtResource("1_7dww5")
 
